@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta charset="utf-8">
+<title>rem基础布局</title>
+<script type="text/javascript">
+(function (doc, win) {
+	  var docEl = doc.documentElement,
+	    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	    recalc = function () {
+	      var clientWidth = docEl.clientWidth;
+	      if (!clientWidth) return;
+	      docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+	    };
+	  if (!doc.addEventListener) return;
+	  win.addEventListener(resizeEvt, recalc, false);
+	  doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+</script>
+<style type="text/css">
+/*=== base style===*/
+*{margin: 0px; padding: 0px;}
+ul{list-style: none;}
+.wrap{min-width: 320px; max-width: 640px; width: 100%; margin: 0px auto;; background: #2a6ace; font-family:"微软雅黑", "helvetica neue",tahoma,"hiragino sans gb",stheiti,"wenquanyi micro hei",\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif; font-size: 12px;}/*适用于手机端：字体大小用em，1em=16px；为默认字体大小;最大宽度640*/
+
+.pro{width:6.2rem; margin: 0px auto; padding-top: 20px; overflow: hidden;}
+.clearfix:after {content:"";height:0;display:block;clear:both;}
+.clearfix {zoom:1;}
+.pro ul{width:6.4rem;}
+.pro li{width: 3rem; height: 3.6rem; float: left; margin: 0 0.2rem 0.2rem 0;}
+.pro li .box{width: 3rem; height: 3rem; background: #ccc;}
+.pro li p{font-size: 0.24rem; line-height: 0.6rem; text-align: center;}
+</style>
+</head>
+<body>
+<div class="wrap">
+   <div class="pro">
+      <ul class="clearfix">
+         <li> <div class="box"></div> <p>区块文案</p> </li>
+         <li> <div class="box"></div> <p>区块文案</p> </li>
+         <li> <div class="box"></div> <p>区块文案</p> </li>
+         <li> <div class="box"></div> <p>区块文案</p> </li>
+         <li> <div class="box"></div> <p>区块文案</p> </li>
+      </ul>
+   </div>
+</div>
+</body>
+</html>
